@@ -1,0 +1,155 @@
+"use client";
+
+import Link from "next/link";
+import type { NextPage } from "next";
+import { useAccount } from "wagmi";
+import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { Address } from "~~/components/scaffold-eth";
+
+const Home: NextPage = () => {
+  const { address: connectedAddress } = useAccount();
+
+  return (
+    <>
+      <div className="flex items-center flex-col flex-grow pt-10">
+        <div className="px-5">
+          <h1 className="text-center text-6xl font-bold">
+            CasaSegura    
+          </h1>
+          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
+            <p className="my-2 font-medium">Connected Address:</p>
+            <Address address={connectedAddress} />
+          </div>
+          <p className="text-center text-lg">
+            Get started by editing{" "}
+            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
+              packages/nextjs/app/page.tsx
+            </code>
+          </p>
+          <p className="text-center text-lg">
+            Edit your smart contract{" "}
+            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
+              YourContract.sol
+            </code>{" "}
+            in{" "}
+            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
+              packages/hardhat/contracts
+            </code>
+          </p>
+        </div>
+
+        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
+          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+              <BugAntIcon className="h-8 w-8 fill-secondary" />
+              <p>
+                Tinker with your smart contract using the{" "}
+                <Link href="/debug" passHref className="link">
+                  Depurador de contratos
+                </Link>{" "}
+                tab.
+              </p>
+            </div>
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
+              <p>
+                Explore your local transactions with the{" "}
+                <Link href="/blockexplorer" passHref className="link">
+                  Block Explorer
+                </Link>{" "}
+                tab.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Home;
+-------------------por otro lado----------------------
+-------------------------------------------------------
+<div class="card bg-base-100 w-96 shadow-xl">
+  <figure class="px-10 pt-10">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+      alt="Shoes"
+      class="rounded-xl" />
+  </figure>
+  <div class="card-body items-center text-center">
+    <h2 class="card-title">Shoes!</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <div class="card-actions">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
+......................................................
+......................................................
+<div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+              <BugAntIcon className="h-8 w-8 fill-secondary" />
+              <p>
+                Tinker with your smart contract using the{" "}
+                <Link href="/debug" passHref className="link">
+                  Depurador de contratos
+                </Link>{" "}
+                tab.
+              </p>
+            </div>
+
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
+              <p>
+                Explore your local transactions with the{" "}
+                <Link href="/blockexplorer" passHref className="link">
+                  Block Explorer
+                </Link>{" "}
+                tab.
+              </p>
+            </div>
+................................................................
+................................................................
+<div className="flex justify-center items-center gap-2">
+              <a
+                className="flex justify-center items-center gap-1"
+                href="https://buidlguidl.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="link">BuidlGuidl</span>
+              </a>
+            </div>
+            <span>·</span>
+            <div className="text-center">
+              <a href="https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA" target="_blank" rel="noreferrer" className="link">
+                Support
+              </a>
+            </div>
+            ------------------------------------
+            --------------------------------------
+import React from 'react';
+
+const HouseCard = ({ imageSrc, title, description }) => {
+  return (
+    <div className="card bg-base-100 w-96 shadow-xl">
+      <figure className="px-10 pt-10">
+        <img
+          src={imageSrc}
+          alt={title}
+          className="rounded-xl"
+        />
+      </figure>
+      <div className="card-body items-center text-center">
+        <h2 className="card-title">{title}</h2>
+        <p>{description}</p>
+        <div className="card-actions">
+          <button className="btn btn-primary">Compra Ahora</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HouseCard;
+-----------------------------------------
