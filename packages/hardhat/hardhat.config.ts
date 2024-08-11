@@ -16,8 +16,15 @@ const providerApiKey = process.env.ALCHEMY_API_KEY || "oKxs-03sij-U_N0iOlrSsZFr2
 // If not set, it uses the hardhat account 0 private key.
 const deployerPrivateKey =
   process.env.DEPLOYER_PRIVATE_KEY ?? "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+const deployerPrivateKeyAvalanche =
+  "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
 // If not set, it uses ours Etherscan default API key.
 const etherscanApiKey = process.env.ETHERSCAN_API_KEY || "DNXJA8RX2Q3VZ4URQIWP7Z68CJXQZSC6AW";
+
+const totalAmount = "100000000000000000000"; // Ejemplo: 100 ETH (en wei)
+const depositAmount = "10000000000000000000"; // Ejemplo: 10 ETH (en wei)
+const penaltyAmount = "5000000000000000000"; // Ejemplo: 5 ETH (en wei)
+const refundDeadline = Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60; // Ejemplo: Fecha límite de 30 días a partir de ahora (en timestamp)
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -36,6 +43,30 @@ const config: HardhatUserConfig = {
       // By default, it will take the first Hardhat account as the deployer
       default: 0,
     },
+    /*builderAddress: {
+      default: 1, // Account #1
+    },
+    buyerAddress: {
+      default: 2, // Account #2
+    },
+    paymentToken: {
+      default: 4,
+    },
+    totalAmount: {
+      default: totalAmount,
+    },
+    depositAmount: {
+      default: depositAmount,
+    },
+    penaltyAmount: {
+      default: penaltyAmount,
+    },
+    oracleAddress: {
+      default: 3, // Account #3
+    },
+    refundDeadline: {
+      default: refundDeadline,
+    },*/
   },
   networks: {
     // View the networks that are pre-configured.
@@ -118,6 +149,10 @@ const config: HardhatUserConfig = {
       url: "https://sepolia.publicgoods.network",
       accounts: [deployerPrivateKey],
     },
+    fuji: {
+      url: "https://api.avax-test.network/ext/bc/C/rpc",
+      accounts: [deployerPrivateKeyAvalanche]
+    },
   },
   // configuration for harhdat-verify plugin
   etherscan: {
